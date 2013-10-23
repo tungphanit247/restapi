@@ -11,6 +11,7 @@ env:
 before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('password') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS restapi;" -uroot; fi
 
 script: phpunit --configuration phpunit.xml --coverage-text
