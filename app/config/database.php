@@ -48,7 +48,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'restapi_test',
+			'database'  => 'restapi',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
