@@ -13,6 +13,7 @@
   },
   "require-dev": {
     "way/generators": "dev-master",
+    "way/laravel-test-helpers": "dev-master",
     "mockery/mockery": "0.7.*",
     "kindari/laravel-markdown": "1.0.*"
   },

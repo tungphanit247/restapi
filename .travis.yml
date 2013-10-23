@@ -3,11 +3,14 @@ language: php
 php:
   - 5.5
 
+services: mysql
+
+env:
+  - DB=mysql
+
 before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev
-  - mysql -e 'create database restapi;'
-  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('password') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+  - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS hello_world_test;" -uroot; fi
 
-
-script: phpunit
+script: phpunit --configuration phpunit.xml --coverage-text
