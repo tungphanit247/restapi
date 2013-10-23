@@ -1,11 +1,12 @@
 language: php
 
 php:
-  - 5.3
-  - 5.4
+  - 5.5
 
 before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('password') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+
 
 script: phpunit
