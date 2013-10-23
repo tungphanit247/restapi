@@ -5,7 +5,8 @@ class ArticlesControllerTest extends TestCase {
 	public function setUp() {
 		parent::setUp();
 
-		Artisan::call('migrate:refresh');
+		Artisan::call('migrate');
+		$this->seed();
 
 		$this->mock = Mockery::mock( 'ArticleRepositoryInterface' );
 	}
